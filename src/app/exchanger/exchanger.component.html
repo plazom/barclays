@@ -1,0 +1,13 @@
+<form>
+  Base:
+  <select (change)="onCurrencyNameChange($event)">
+    <option *ngFor="let summary of summaries" value={{summary}}>
+        {{summary}}
+    </option>
+  </select>  
+</form>
+<form>
+  Date:
+  <input type="date" (change)="onDateChange($event)">
+</form>
+<button #myBtn class="btn btn-info" (click)="displayCurrencyInfo($event)">Display</button>
