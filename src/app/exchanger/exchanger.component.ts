@@ -25,7 +25,7 @@ export class ExchangerComponent implements OnInit {
     this.errorDateTxt ='';
     if(!this.date)
     {
-      this.errorDateTxt = 'Select date, please';
+      this.errorDateTxt = 'Select correct date, please';
     }else{
       let minDate = new Date('1999-1-4');
       if(this.date<minDate)
