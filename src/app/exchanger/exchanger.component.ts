@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CurrencyService } from 'src/app/exchanger/api.service';
@@ -10,7 +10,7 @@ import { forEach } from '@angular/router/src/utils/collection';
   styleUrls: ['./exchanger.component.css']
 })
 
-export class ExchangerComponent {
+export class ExchangerComponent implements OnInit {
   currencyIds = ['EUR', 'USD', 'GBP', 'AUD', 'CAD', 'JPY'];
   rates = [];
   noError = true;
@@ -21,7 +21,8 @@ export class ExchangerComponent {
     this.noError = this.date? true: false;
     return this.noError;
   }
-  generateRates(result)
+  
+  generateRates(result=null)
   {
     this.rates = [];
     if(result && result.rates)
@@ -34,6 +35,17 @@ export class ExchangerComponent {
         obj['buy'] = result.rates[key]-percent5;
         obj['sell'] = result.rates[key]+percent5;
         obj['canBeBase'] = this.currencyIds.indexOf(key)>=0;
+        this.rates.push(obj);
+      }
+    }else
+    {
+      for(var i=0; i<4;i++)
+      {
+        let obj = {};
+        obj['currency'] = null;
+        obj['buy'] = null;
+        obj['sell'] = null;
+        obj['canBeBase'] = false;
         this.rates.push(obj);
       }
     }
@@ -66,6 +78,9 @@ export class ExchangerComponent {
   }  
 
   constructor(private currencyService:CurrencyService) {  
+    
   }
-
+  ngOnInit() {
+    this.generateRates();
+  }
 }
