@@ -16,17 +16,6 @@
     <button class="displayButton" (click)="displayCurrencyInfo($event)">Display</button>
   </div>
   <div class="rightpart">
-    <table>
-      <tr>
-        <th>Currency</th>
-        <th>Buy</th>
-        <th>Sell</th>
-      </tr>
-      <tr *ngFor="let rate of rates">
-          <td> {{rate.currency}} </td>
-          <td align="right"> {{rate.buy|number:'0.4-4'}} </td>
-          <td align="right"> {{rate.sell|number:'0.4-4'}} </td>
-      </tr>      
-    </table>
+      <app-sortabletable [rates]="rates"></app-sortabletable>
   </div>
 </div>

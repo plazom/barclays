@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-sortabletable',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sortabletable.component.css']
 })
 export class SortabletableComponent implements OnInit {
-
+  @Input() rates = [];
   constructor() { }
 
   ngOnInit() {

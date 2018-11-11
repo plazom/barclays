@@ -2,20 +2,6 @@ form{
 	padding-bottom: 10px;
 	text-align: right;
 }
-table {
-	font-family: arial, sans-serif;
-	border-collapse: collapse;
-}
-
-td, th {
-	border: 1px solid #dddddd;
-	text-align: right;
-	padding: 8px;
-}
-
-tr:nth-child(even) {
-	background-color: #dddddd;
-}
 
 .error
 {
