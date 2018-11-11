@@ -8,13 +8,15 @@ import { ExchangerComponent } from './exchanger/exchanger.component';
 import { HttpClientModule } from  '@angular/common/http';
 import {CurrencyService} from './exchanger/api.service';
 import { SortabletableComponent } from './sortabletable/sortabletable.component';
+import { ArraySortPipe } from './sortabletable/sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ExchangerComponent,
-    SortabletableComponent
+    SortabletableComponent,
+    ArraySortPipe
   ],
   imports: [
     BrowserModule,

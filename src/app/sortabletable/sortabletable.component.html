@@ -1,10 +1,19 @@
 <table>
     <tr>
-      <th>Currency</th>
-      <th>Buy</th>
-      <th>Sell</th>
+      <th (click)="onColClick('currency')">Currency 
+        <span [hidden]="hideArrow('currency', true)">&nbsp;▾</span>
+        <span [hidden]="hideArrow('currency', false)">&nbsp;▴</span>
+      </th>
+      <th (click)="onColClick('buy')">Buy
+          <span [hidden]="hideArrow('buy', true)">&nbsp;▾</span>
+          <span [hidden]="hideArrow('buy', false)">&nbsp;▴</span>          
+      </th>
+      <th (click)="onColClick('sell')">Sell
+          <span [hidden]="hideArrow('sell', true)">&nbsp;▾</span>
+          <span [hidden]="hideArrow('sell', false)">&nbsp;▴</span>          
+      </th>
     </tr>
-    <tr *ngFor="let rate of rates">
+    <tr *ngFor="let rate of rates | sortCurrency:sortColName:sortDown">
         <td [style.color]="getColor(rate)"> {{rate.currency}} </td>
         <td [style.color]="getColor(rate)"> {{rate.buy|number:'0.4-4'}} </td>
         <td [style.color]="getColor(rate)"> {{rate.sell|number:'0.4-4'}} </td>

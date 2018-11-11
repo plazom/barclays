@@ -54,13 +54,11 @@ export class ExchangerComponent implements OnInit {
   onCurrencyNameChange(event:Event)
   {
     this.baseCurrency = (<HTMLInputElement>event.target).value;
-    //console.log((<HTMLInputElement>event.target).value);
   }
 
   onDateChange(event:Event)
   {
     this.date = (<HTMLInputElement>event.target).value;
-    //console.log((<HTMLInputElement>event.target).value);
     this.checkDate();
   }
 
@@ -68,10 +66,8 @@ export class ExchangerComponent implements OnInit {
   {
     if(this.checkDate())
     {
-      //2018-11-14
       let str = this.date+'?base='+this.baseCurrency;
       this.currencyService.getCurrency(str).subscribe(result => {
-        console.log(result);
         this.generateRates(result);
        }, error => console.error(error));
     }

@@ -1,14 +1,20 @@
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
+	font-size: 11pt;
 }
 
 td, th {
 	border: 1px solid #dddddd;
 	text-align: right;
-	padding: 8px;
+	padding: 2px;
+	height: 15px;
 }
-
+th{
+	min-width: 120px;
+	cursor: pointer;
+	user-select: none;
+}
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
