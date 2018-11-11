@@ -9,7 +9,9 @@ import { Input } from '@angular/core';
 export class SortabletableComponent implements OnInit {
   @Input() rates = [];
   constructor() { }
-
+  getColor(rate):string{
+      return rate && rate.canBeBase?'red':'black';
+  }
   ngOnInit() {
   }
 

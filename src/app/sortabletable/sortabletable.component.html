@@ -5,8 +5,8 @@
       <th>Sell</th>
     </tr>
     <tr *ngFor="let rate of rates">
-        <td> {{rate.currency}} </td>
-        <td> {{rate.buy|number:'0.4-4'}} </td>
-        <td> {{rate.sell|number:'0.4-4'}} </td>
+        <td [style.color]="getColor(rate)"> {{rate.currency}} </td>
+        <td [style.color]="getColor(rate)"> {{rate.buy|number:'0.4-4'}} </td>
+        <td [style.color]="getColor(rate)"> {{rate.sell|number:'0.4-4'}} </td>
     </tr>      
 </table>

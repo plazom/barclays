@@ -33,6 +33,7 @@ export class ExchangerComponent {
         obj['currency'] = key;
         obj['buy'] = result.rates[key]-percent5;
         obj['sell'] = result.rates[key]+percent5;
+        obj['canBeBase'] = this.currencyIds.indexOf(key)>=0;
         this.rates.push(obj);
       }
     }
