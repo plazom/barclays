@@ -1,0 +1,53 @@
+form{
+	padding-bottom: 10px;
+	text-align: right;
+}
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+.error
+{
+	margin-top: 3px;
+	color: red;
+	font-size: 10pt;
+}
+.exchangercont {
+	white-space:nowrap;
+	width: 100%;
+}
+.leftpart
+{
+	margin: 20px;
+	width: 50%;
+	text-align: right;
+	float: left;
+}
+.rightpart
+{
+	margin: 20px;
+	width: 40%;
+	float: left;
+}
+
+.comboBox{
+	width: 200px;
+}
+.dateSelector{
+	width: 195px;
+}
+.displayButton
+{
+	width: 200px;
+}
