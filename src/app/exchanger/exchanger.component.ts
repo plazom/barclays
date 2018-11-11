@@ -13,13 +13,26 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class ExchangerComponent implements OnInit {
   currencyIds = ['EUR', 'USD', 'GBP', 'AUD', 'CAD', 'JPY'];
   rates = [];
-  noError = true;
+  errorDateTxt = '';
   baseCurrency = "EUR";
-  date = '';
-  checkDate():boolean
+  date;
+  noDateError():boolean
   {
-    this.noError = this.date? true: false;
-    return this.noError;
+    return this.date && this.errorDateTxt=='';
+  }
+  checkDate()
+  {
+    this.errorDateTxt ='';
+    if(!this.date)
+    {
+      this.errorDateTxt = 'Select date, please';
+    }else{
+      let minDate = new Date('1999-1-4');
+      if(this.date<minDate)
+      {
+        this.errorDateTxt = 'There is no data for dates older then 1999-01-04';
+      }
+    }
   }
   
   generateRates(result=null)
@@ -58,15 +71,24 @@ export class ExchangerComponent implements OnInit {
 
   onDateChange(event:Event)
   {
-    this.date = (<HTMLInputElement>event.target).value;
+    let value = (<HTMLInputElement>event.target).value;
+    if(value)
+    {
+      this.date = new Date(value);
+    }else
+    {
+      this.date = null;
+    }
     this.checkDate();
   }
 
   displayCurrencyInfo(event:Event)
   {
-    if(this.checkDate())
+    this.checkDate();
+    if(this.noDateError())
     {
-      let str = this.date+'?base='+this.baseCurrency;
+      let dstr = this.date.getFullYear()+'-'+(this.date.getMonth()+1)+'-'+this.date.getDate();
+      let str = dstr+'?base='+this.baseCurrency;
       this.currencyService.getCurrency(str).subscribe(result => {
         this.generateRates(result);
        }, error => console.error(error));

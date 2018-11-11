@@ -10,8 +10,8 @@
     </form>
     <form>
       Date:
-      <input class="dateSelector" required type="date" (change)="onDateChange($event)">
-      <div class="error" [hidden]="noError">Select date, please</div> 
+      <input class="dateSelector" type="date" (change)="onDateChange($event)">
+      <div class="error" [hidden]="noDateError()">{{errorDateTxt}}</div> 
     </form>
     <button class="displayButton" (click)="displayCurrencyInfo($event)">Display</button>
   </div>
