@@ -30,7 +30,7 @@ export class ExchangerComponent implements OnInit {
       let minDate = new Date('1999-1-4');
       if(this.date<minDate)
       {
-        this.errorDateTxt = 'There is no data for dates older then 1999-01-04';
+        this.errorDateTxt = 'There is no data for dates older then 04.01.1999';
       }
     }
   }
